@@ -1,17 +1,22 @@
-import React, { Component } from 'react'
-import Navbar from "./components/Navbar";
-import Cards from "./components/Card";
-import Weather from "./components/Weather";
+import React from 'react'
+import SingleMovie from './components/SingleMovie'
+import Home from './components/Home'  
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        <Navbar/>
-        <Cards/>
-        <Weather/>
-      </>
-    )
-  }
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="movie/:id" element={<SingleMovie/>} />
+      </Routes>
+    </BrowserRouter>
+
+    </>
+  )
 }
+
+export default App
+
 
