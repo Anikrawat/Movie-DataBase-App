@@ -9,17 +9,18 @@ const AppProvider = ({children}) => {
     
     const [Movie,setMovie] = useState([])
     const [Title,setTitle] = useState("Avengers")
+    const [isLoading,setisLoading] = useState(true)
 
     const FetchedApi = async (API_URL) => {
         try{
         let data = await fetch(API_URL)
         let parsedData = await data.json()
-        console.log(parsedData.Search)
         
         if (parsedData.Response === 'True') {
+            setisLoading(false)
             setMovie(parsedData.Search)
         }else{
-            console.log("kuch ni hai")
+            setisLoading(true)
         }
         }catch(error){
             console.log(error)
@@ -27,10 +28,15 @@ const AppProvider = ({children}) => {
     }
 
     useEffect(() => {
-        FetchedApi(`${URL}&s=${Title}`)
+
+        let timerOut = setTimeout(() => {
+            FetchedApi(`${URL}&s=${Title}`)
+        }, 300);
+
+        return () => {clearTimeout(timerOut)}
     },[Title])
 
-    return <AppContext.Provider value={{Movie,setTitle,Title}}>
+    return <AppContext.Provider value={{Movie,setTitle,Title,isLoading}}>
         {children}
     </AppContext.Provider>
 

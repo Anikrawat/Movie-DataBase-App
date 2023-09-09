@@ -11,7 +11,7 @@ function SearchBar() {
     <>
       <div className="d-flex justify-content-center"style={{margin: '20px 0px'}}> 
       <div className="d-flex">
-        <input className="form-control me-2" id='searchBar' type="text" placeholder="Search" aria-label="Search" onChange={fetchValue} value={Title}/>
+      <input className="form-control me-2" id='searchBar' type="text" placeholder="Search" aria-label="Search" onChange={fetchValue} value={Title}/>
       </div>
       </div> 
     </>
