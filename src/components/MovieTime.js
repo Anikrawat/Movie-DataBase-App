@@ -17,7 +17,7 @@ function MovieTime() {
     }
     return (
     <>
-    <div className="Cards d-flex flex-wrap">
+    <div className="Cards d-flex flex-wrap justify-content-center">
     {Movie.map((curr) => {
         return (
             <MovieCards Name = {curr.Title} Posters = {curr.Poster} Date = {curr.Year} id = {curr.imdbID}/>
