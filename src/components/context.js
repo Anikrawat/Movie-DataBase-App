@@ -8,7 +8,7 @@ const URL = `https://www.omdbapi.com/?apikey=74607774`
 const AppProvider = ({children}) => {
     
     const [Movie,setMovie] = useState([])
-    const [Title,setTitle] = useState("Avengers")
+    const [Title,setTitle] = useState("")
     const [isLoading,setisLoading] = useState(true)
 
     const FetchedApi = async (API_URL) => {
